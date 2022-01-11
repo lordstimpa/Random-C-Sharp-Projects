@@ -1,0 +1,18 @@
+namespace Tutorial
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Mata in ett tal mellan 1-100: ");
+            string tal = Console.ReadLine();
+            int antal = Convert.ToInt32(tal);
+
+            while (antal >= 1 && antal <= 100)
+            {
+                Console.WriteLine(antal++);
+            }
+            Console.ReadLine();
+        }
+    }
+}
