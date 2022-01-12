@@ -1,0 +1,20 @@
+namespace Tutorial
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random roll = new Random();
+            for (int i = 0; i < 6; i++)
+            {
+                Console.WriteLine(RollDie(roll));
+            }
+            Console.ReadLine();
+        }
+        public static int RollDie(Random roll)
+        {
+            int summa = roll.Next(1, 6);
+            return summa;
+        }
+    }
+}
