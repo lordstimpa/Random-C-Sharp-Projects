@@ -1,0 +1,88 @@
+namespace Delmoment
+{ 
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double pris, betalade, växel;    // Deklaration av användarens inskrift
+            int intVäxel;                    // Deklaration av växel i heltal
+            int femtioren = 0;               // Deklaration av antalet femtio ören innan kalkylering
+
+            Console.WriteLine("*****Räkna växel*****\n");                                                     // Programmets titel som presenteras för användaren
+            Console.WriteLine("Med hjälp av detta program kan du räkna ut hur mycket du får i växel.\n");     // Kort information av programmet funktion som presenteras för användaren
+
+            Console.WriteLine("Ange priset för en vara: ");     // Ber användaren mata in priset för en vara
+            pris = Convert.ToDouble(Console.ReadLine());        // Förvarar och konverterar informationen användaren matat in från string till double
+
+            Console.WriteLine("Ange beloppet du vill betala för varan: ");  // Ber användaren mata in beloppet användaren betalar för varan
+            betalade = Convert.ToDouble(Console.ReadLine());                // Förvarar och konverterar informationen användaren matat in från string till double
+
+            växel = (betalade - pris);      // Uträkning av totala växeln utifrån informationen som angetts av användandaren
+
+            intVäxel = (int)växel;
+
+            double oren = växel - intVäxel;
+
+
+            if (oren >= 0.25 && oren <= 0.75)
+            {
+                femtioren = 1;
+            }
+            else if (oren > 0.75)
+            {
+                intVäxel = intVäxel++;
+            }
+            else
+            {
+                femtioren = 0;
+            }
+
+            Console.WriteLine("\nDu får totalt " + intVäxel + " kronor och " + oren + " öre i växel.\n");
+
+            int ettTusen = intVäxel / 1000;      // Uträkning av totala antalet 1000 kronors sedlar
+            intVäxel = intVäxel % 1000;          // Uträkning av rest från tidigare uträkning
+
+            int femHundra = intVäxel / 500;      // Uträkning av totala antalet 500 kronors sedlar 
+            intVäxel = intVäxel % 500;           // Uträkning av rest från tidigare uträkning
+
+            int ettHundra = intVäxel / 100;      // Uträkning av totala antalet 100 kronors sedlar
+            intVäxel = intVäxel % 100;           // Uträkning av rest från tidigare uträkning  
+
+            int Femtio = intVäxel / 50;          // Uträkning av totala antalet 50 kronors sedlar
+            intVäxel = intVäxel % 50;            // Uträkning av rest från tidigare uträkning
+
+            int Tjugo = intVäxel / 20;           // Uträkning av totala antalet 20 kronors sedlar
+            intVäxel = intVäxel % 20;            // Uträkning av rest från tidigare uträkning
+
+            int Tio = intVäxel / 10;             // Uträkning av totala antalet 10 kronors mynt
+            intVäxel = intVäxel % 10;            // Uträkning av rest från tidigare uträkning
+
+            int Fem = intVäxel / 5;              // Uträkning av totala antalet 5 kronors mynt
+            intVäxel = intVäxel % 5;             // Uträkning av rest från tidigare uträkning
+
+            int Ett = intVäxel / 1;              // Uträkning av totala antalet 1 kronors mynt
+
+
+            Console.WriteLine("1000 kronors sedlar: " + ettTusen);  // Informerar användaren av antalet 1000 kronors sedlar i växel
+
+            Console.WriteLine("500 kronors sedlar: " + femHundra);  // Informerar användaren av antalet 500 kronors sedlar i växel
+
+            Console.WriteLine("100 kronors sedlar: " + ettHundra);  // Informerar användaren av antalet 100 kronors sedlar i växel
+
+            Console.WriteLine("50 kronors sedlar: " + Femtio);      // Informerar användaren av antalet 50 kronors sedlar i växel
+
+            Console.WriteLine("20 kronors sedlar: " + Tjugo);       // Informerar användaren av antalet 20 kronors sedlar i växel
+
+            Console.WriteLine("10 kronors mynt: " + Tio);           // Informerar användaren av antalet 10 kronors mynt i växel
+
+            Console.WriteLine("5 kronors mynt: " + Fem);            // Informerar användaren av antalet 5 kronors mynt i växel
+
+            Console.WriteLine("1 kronors mynt: " + Ett);            // Informerar användaren av antalet 1 kronors mynt i växel
+
+            Console.WriteLine("50 öre mynt: " + femtioren);         // Informerar användaren av antalet 50 öre i växel
+
+            Console.ReadLine();
+
+        }
+    }
+}
