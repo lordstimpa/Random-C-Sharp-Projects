@@ -1,0 +1,67 @@
+namespace delmoment2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int fahrenheit = CelciusToFahrenheit(100);
+            Console.WriteLine(fahrenheit);
+
+            double fahrenheitF = CelciusToFahrenheit(97.3f);
+            Console.WriteLine(fahrenheitF);
+
+            int celcius = FahrenheitToCelcius(212);
+            Console.WriteLine(celcius);
+
+            double celciusF = FahrenheitToCelcius(97.30);
+            Console.WriteLine(celciusF);
+
+        }
+        public static bool IsBoiling(float Temperature)
+        {
+            if (Temperature < 100)
+            {
+                return false;
+            }
+            return true;
+        }
+        public static int CelciusToFahrenheit(int celcius)
+        {
+            double grader = Convert.ToDouble(celcius);
+            grader = CTF(celcius);
+            int grader2 = Convert.ToInt32(grader);
+            return grader2;
+
+        }
+        public static double CelciusToFahrenheit(double celcius)
+        {
+            CTF(celcius);
+            return celcius;
+        }
+        public static int FahrenheitToCelcius(int fahrenheit)
+        {
+            double grader = Convert.ToDouble(fahrenheit);
+            grader = FTC(fahrenheit);
+            int grader2 = Convert.ToInt32(grader);
+            return grader2;
+
+        }
+        public static double FahrenheitToCelcius(double fahrenheit)
+        {
+            FTC(fahrenheit);
+            return fahrenheit;
+        }
+        public static double CTF(double celcius)
+        {
+
+            double summa = ((celcius * 9) / 5) + 32;
+            return summa;
+
+        }
+        public static double FTC(double fahrenheit)
+        {
+            double summa2 = (fahrenheit - 32) / 1.8;
+            return summa2;
+        }
+    }
+}
