@@ -1,0 +1,69 @@
+namespace delmoment2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int skott = 0;
+            int x;
+            int y;
+            int[,] gameBoard = new int[4,4];
+
+            System.Random random = new System.Random();
+            gameBoard[random.Next(4), random.Next(4)] = 2;
+
+            while (true)
+            {
+                GameGrid(gameBoard);
+
+                Console.WriteLine("NYTT SKOTT");
+
+                Console.Write("Ange X-koordinat: ");
+                x = Convert.ToInt32(Console.ReadLine());
+                int guessedRow = x - 1;
+
+                Console.Write("Ange Y-koordinat: ");
+                y = Convert.ToInt32(Console.ReadLine());
+                int guessedColumn = y - 1;
+
+                System.Console.WriteLine("_______________");
+
+                if(gameBoard[guessedRow, guessedColumn] == 2)
+                {
+                    System.Console.WriteLine("You hit the target!");
+                    System.Console.WriteLine("Du sköt totalt " + skott + " gånger.");
+                }
+                else
+                {
+                    gameBoard[guessedRow,guessedColumn] = 1;
+                    System.Console.WriteLine("You missed! Try again.");
+                    skott++;
+                }
+            }
+        }
+        static void GameGrid(int[,] grid)
+        {
+            int count = 1;
+            System.Console.WriteLine(" |1|2|3|4|");
+
+            for(int y = 0; y < 4; y++)
+            {
+                System.Console.Write("" + count + "|");
+
+                for (int x = 0; x < 4; x++)
+                {
+                    if (grid[x,y] == 1)
+                    {
+                        System.Console.Write("*|");
+                    }
+                    else
+                    {
+                        System.Console.Write(" |");
+                    }
+                }
+                System.Console.WriteLine("");
+                count++;
+            }
+        }
+    }
+}
