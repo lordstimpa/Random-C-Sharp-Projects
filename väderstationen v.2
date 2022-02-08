@@ -1,0 +1,77 @@
+namespace delmoment2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            bool avsluta = false;
+
+            do
+            {
+                Console.WriteLine("[L]ägg till temperaturmätning");
+                Console.WriteLine("[S]kriv ut alla temperaturer");
+                Console.WriteLine("[T]ag bort temperaturmätning");
+                Console.WriteLine("[A]vsluta");
+
+                Console.Write("Ange alternativ: ");
+                string alternativ = Console.ReadLine();
+                switch (alternativ)
+                {
+
+                    case "L":
+                    case "l":
+                        // Anger antalet temperaturer
+                        Console.Write("Ange antalet temperaturer du mätt: ");
+                        int antalTemp = Convert.ToInt32(Console.ReadLine());
+
+                        double[] temperatur = new double[antalTemp];
+
+                        // Anger temperatur
+                        for (int i = 0; i < temperatur.Length; i++)
+                        {
+                            Console.Write("Ange temperatur " + i + ":");
+                            double sum = Convert.ToDouble(Console.ReadLine());
+                            temperatur[i] = sum;
+                        }
+                        break;
+
+                    case "S":
+                    case "s":
+                        // Presenterar alla temperaturer
+                        for (int i = 0; i < temperatur.Length; i++)
+                        {
+                            Console.WriteLine(temperatur[i]);
+                        }
+                        break;
+
+                    case "T":
+                    case "t":
+                        // Ta bort temperatur
+                        Console.WriteLine("Vilken temperatur vill du ta bort? ");
+                        double taBort = Convert.ToDouble(Console.ReadLine());
+                        for (int i = 0; i < temperatur.Length; i++)
+                        {
+                            taBort = taBort + temperatur[i];
+                        }
+                        Console.WriteLine(taBort / temperatur.Length);
+                        break;
+
+                    case "A":
+                    case "a":
+                        // Avsluta programmet
+                        Console.WriteLine("Tack och hej!");
+                        avsluta = true;
+                        break;
+
+                    default:
+                        // Felmedellande > avslutar programmet
+                        Console.WriteLine("Något gick fel");
+                        avsluta = true;
+                        break;
+                }
+            }
+            while (avsluta = false);
+        }
+    }
+}
