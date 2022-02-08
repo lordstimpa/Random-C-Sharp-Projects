@@ -1,0 +1,36 @@
+namespace delmoment2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string[] Sum = new string[5];
+
+            for (int i = 0; i < Sum.Length; i++)
+            {
+                Console.Write("Ange namn " + i + ":");
+                string namn = Console.ReadLine();
+                Sum[i] = namn;
+            }
+
+            for (int i = 0; i < Sum.Length; i++)
+            {
+                Console.WriteLine(Sum[i]);
+            }
+
+            Console.Write("Ange ett index mellan 0-4: ");
+            int Index = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Ange ett nytt namn: ");
+            string nyttNamn = Console.ReadLine();
+
+            Sum[Index] = nyttNamn;
+
+            for (int i = 0; i < Sum.Length; i++)
+            {
+                Console.WriteLine(Sum[i]);
+            }
+        }
+    }
+}
