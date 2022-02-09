@@ -1,0 +1,90 @@
+namespace delmoment2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Dog dog = new Dog("Torvi", "Siberian Husky", 3);
+
+            Console.WriteLine(dog.Name + " is a " + dog.Race + " and is " + dog.Age + " years old.");
+            dog.Bark();
+            dog.Fetch();
+        }
+    }
+    public class Dog
+    {
+        private string name;
+        private string race;
+        private double age;
+        private string v;
+
+        public Dog(string name, string race, double age)
+        {
+            this.name = name;
+            this.race = race;
+            this.age = age;
+        }
+
+        public Dog(string v)
+        {
+            this.v = v;
+        }
+
+        public void Bark()
+        {
+            if (age < 1)
+            {
+                Console.WriteLine(name + " can not bark because it is a small puppy.");
+            }
+            else
+            {
+                Console.WriteLine(name + " barks: WOFF WOFF!");
+            }
+        }
+        public void Fetch()
+        {
+            if (age > 15)
+            {
+                Console.WriteLine(name + " is " + age + " years old and cannot retrieve the ball. ");
+            }
+            else
+            {
+                Console.WriteLine(name + " runs after the ball and drops it at your feet.");
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+        public string Race
+        {
+            get
+            {
+                return race;
+            }
+            set
+            {
+                race = value;
+            }
+        }
+        public double Age
+        {
+            get
+            {
+                return age;
+            }
+            set
+            {
+                age = value;
+            }
+        }
+    }
+}
