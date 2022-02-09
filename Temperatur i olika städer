@@ -1,0 +1,110 @@
+
+namespace delmoment2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Stad> städer = new List<Stad>();
+
+            bool Repeat = true;
+            do
+            {
+                Console.WriteLine("===Väderleken===");
+                Console.WriteLine("1: Ange ny stad");
+                Console.WriteLine("2: Se temperatur för samtliga städer");
+                Console.WriteLine("3: Se medeltemperatur för samtliga städer");
+                Console.WriteLine("4: Se vilken stad som är kallast & vart det är varmast");
+                Console.WriteLine("5. Avsluta programmet");
+
+                Console.Write("Ange alterntativ: ");
+                int alternativ = Convert.ToInt32(Console.ReadLine());
+
+
+                switch (alternativ)
+                {
+                    case 1:
+                        Console.Write("Stadens namn: ");
+                        string namn = Console.ReadLine();
+
+                        Console.Write("Ange temperatur; ");
+                        int temp = Convert.ToInt32(Console.ReadLine());
+
+                        Stad stad = new Stad(namn, temp);
+
+                        städer.Add(stad);
+
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Temperaturen för samtliga städer är: ");
+                        foreach(var item in städer)
+                        {
+                            Console.WriteLine(item.namn + ": " + item.temp);
+                        }
+                        break;
+
+                    case 3:
+                        // Se medeltemperaturen för alla städer.
+                        // Plussa på alla städers temperaturer och dela med antalet städer.
+                        int sum = 0;
+                        int count = 0;
+
+                        foreach(var item in städer)
+                        {
+                            sum += item.temp;
+                            count++;
+                        }
+                        int medelTemp = sum / count; 
+                        Console.WriteLine("Medeltemperaturen för samtliga städer är: " + medelTemp);
+
+                        break;
+
+                    case 4:
+                        // Sortera alla städer från kallast till varmast.
+                        Stad min = städer[0];
+                        Stad max = städer[0];
+
+                        foreach (var item in städer)
+                        {
+                            if (item.temp > min.temp)
+                            {
+                                min = item;
+                            }
+                            else if (item.temp < max.temp)
+                            {
+                                max = item;
+                            }
+                        }
+                        System.Console.WriteLine("Kallast är det i " + max.namn + ": " + max.temp + " varmast är det i : " + min.namn + ": " + min.temp);
+                        break;
+
+                        break;
+
+                    case 5:
+
+                        Console.WriteLine("Tack för att du använt programmet!");
+                        Repeat = false;
+                        break;
+
+                    default:
+
+                        Console.WriteLine("Vänligen ange en siffra mellan 1-5.");
+                        break;
+                }
+            }
+            while (Repeat = true);
+        }
+    }
+    class Stad
+    {
+        public string namn;
+        public int temp;
+
+        public Stad(string namn, int temp)
+        {
+            this.namn = namn;
+            this.temp = temp;
+        }
+    }
+}
